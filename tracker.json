@@ -1,0 +1,69 @@
+[
+  {
+    "web": ["#fb9d94", 0],
+    "game": ["#8ab3d0", 12],
+    "development": ["#1661ab", 10],
+    "tool": ["#a9bc8f", 3],
+    "creative": ["#12aa9c", 2],
+    "document": ["#eeaa9c", 6],
+    "other": ["#c0c4c3", -1]
+  },
+  {
+    "chrome.exe": {
+      "name": "Chrome Browser",
+      "catalog": "web"
+    },
+    "Code.exe": {
+      "name": "VS Code",
+      "catalog": "tool"
+    },
+    "pycharm64.exe": {
+      "name": "PyCharm",
+      "catalog": "development"
+    },
+    "deadcells.exe": {
+      "name": "Dead Cells",
+      "catalog": "game"
+    },
+    "deadcells_gl.exe": {
+      "name": "Dead Cells",
+      "catalog": "game"
+    },
+    "devenv.exe": {
+      "name": "Visual Studio",
+      "catalog": "development"
+    },
+    "EXCEL.EXE": {
+      "name": "Excel",
+      "catalog": "document"
+    },
+    "WINWORD.EXE": {
+      "name": "Word",
+      "catalog": "document"
+    },
+    "POWERPNT.EXE": {
+      "name": "PowerPoint",
+      "catalog": "document"
+    },
+    "Joplin.exe": {
+      "name": "Joplin",
+      "catalog": "document"
+    },
+    "Photoshop.exe": {
+      "name": "Photoshop",
+      "catalog": "creative"
+    },
+    "Adobe Audition.exe": {
+      "name": "Au",
+      "catalog": "creative"
+    },
+    "calibre.exe": {
+      "name": "Calibre",
+      "catalog": "tool"
+    },
+    "Adobe Premiere Pro.exe": {
+      "name": "Pr",
+      "catalog": "creative"
+    }
+  }
+]
