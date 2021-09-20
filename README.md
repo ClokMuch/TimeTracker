@@ -3,6 +3,11 @@ Time Tracker | Screen Time | 时间追踪 | 时间跟踪 | 屏幕时间 | For Wi
 
 简单通过进程粗略地记录每个进程运行的时间，并展示；
 
+## 输出图片 sample
+![按应用展示 Out depend on apps](app.png)
+
+![按分类展示 Present with catalogs](catalog.png)
+
 ## 特点 features
 + 暂无友好的用户界面 No GUI temporarily
 + 单纯统计进程运行时间 Tracker process Running time simply
