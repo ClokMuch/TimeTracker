@@ -2,6 +2,8 @@
 # By Clok Much
 #
 # ver.1
+#
+# 已废弃
 
 class Default:
     track_time = 30     # 统计周期 int ，单位为 秒 ，指定时间为间隔，进行一次统计

@@ -3,6 +3,16 @@ Time Tracker | Screen Time | 时间追踪 | 时间跟踪 | 屏幕时间 | For Wi
 
 简单通过进程粗略地记录每个进程运行的时间，并展示；
 
+## 性能/占用/影响 performance
+在测试环境下，使用 32 位解释器，去除小循环的 sleep 暂停，运行一段时间后，内存占用在 57.9 ~ 170.2 MB 范围内波动；
+ CPU 占用在 23% 左右波动；磁盘写入 1.6 MB/s.
+
+## 配置/设定 config/configure/preference
++ 在 `tracker.json` 中修改每个进程或分类的权重、显示名称等信息，请按照 `tracker.README.md` 的提示进行修改，并确保 json 格式合法;
+    Change every process' or catalog's name, priority etc. in `tracker.json` according the tips in `tracker.README.md`, and ensure json format is right;
++ 在 `config.json` 中修改程序的配置，如输出目录、程序颜色等，请按照 `config.README.md` 的提示进行修改，并确保 json 格式合法.
+    Change program's out put dir, app color etc. in `config.json` according the tips in `config.README.md`, and ensure json format is right.
+
 ## 输出图片 sample
 ![按应用展示 Out depend on apps](app.png)
 

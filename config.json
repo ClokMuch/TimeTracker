@@ -1,0 +1,10 @@
+{
+  "track_time": 30,
+  "graph_time": 5,
+  "period": 8,
+  "output_dir": "V:\\TimeTracker\\",
+  "sub_dir": "storage\\",
+  "default_reminder_time": 0,
+  "app_color": "#999999",
+  "graph_font": "Sarasa Fixed Slab SC"
+}

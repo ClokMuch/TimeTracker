@@ -1,10 +1,7 @@
 # TimeTracker
 # By Clok Much
 #
-# ver.1
-
-# 自定配置
-import config
+# ver.2
 
 # 原生库
 import json
@@ -21,24 +18,42 @@ from matplotlib import pyplot
 from matplotlib import rc
 import psutil
 
-# 初始化 载入与检查 tracker.json
 Tk().withdraw()
 now_day = datetime.datetime.now().strftime('%Y-%m-%d')
+# 初始化 检查 config.json
+try:
+    with open("config.json", "rb") as file_obj:
+        config = json.load(file_obj)
+        file_obj.close()
+except IOError:
+    showerror(title="Error: config.json", 
+              message="IOError: config.json is not accessible!\n"
+                      "It must be saved in the same dir with this program!")
+    exit()
+except json.decoder.JSONDecodeError:
+    showerror(title="Error: config.json",
+              message="JsonFormatError: json file has something wrong like brackets or comma...\n"
+                      "In short, it not a recognizable json file.")
+    exit()
+
+
+# 检查 tracker.json
 try:    # 验证目录设定的有效性
-    if not path.isdir(config.Default.output_dir):
-        mkdir(config.Default.output_dir)
-    if not path.isdir(config.Default.output_dir + config.Default.sub_dir):
-        mkdir(config.Default.output_dir + config.Default.sub_dir)
-    with open(config.Default.output_dir + "PermissionTest", mode='w', encoding='utf8') as file_obj:
+    if not path.isdir(config["output_dir"]):
+        mkdir(config["output_dir"])
+    if not path.isdir(config["output_dir"] + config["sub_dir"]):
+        mkdir(config["output_dir"] + config["sub_dir"])
+    with open(config["output_dir"] + "PermissionTest", mode='w', encoding='utf8') as file_obj:
         file_obj.write("TEST")
         file_obj.close()
-    with open(config.Default.output_dir + "PermissionTest", mode='r', encoding='utf8') as file_obj:
+    with open(config["output_dir"] + "PermissionTest", mode='r', encoding='utf8') as file_obj:
         tmp = file_obj.read()
         file_obj.close()
     if tmp == "TEST":
-        remove(config.Default.output_dir + "PermissionTest")
+        remove(config["output_dir"] + "PermissionTest")
 except IOError:
-    showerror(title="Error: config.py", message="IOError: dir in config is not accessible!")
+    showerror(title="Error: config.json", message="IOError: dir in config is not accessible!")
+    exit()
 
 try:    # 验证 tracker.json 配置是否可访问及基本数据是否有误
     with open('tracker.json', 'rb') as file_obj:
@@ -78,7 +93,7 @@ except json.decoder.JSONDecodeError:
 
 # 判断是否已有今日的数据，有则载入，若 tracker 新增进程，将把新增进程添加到末尾，并在大循环末尾更新文件；无则重新统计
 try:
-    with open(config.Default.output_dir + now_day + '.json', 'rb') as file_obj:
+    with open(config["output_dir"] + now_day + '.json', 'rb') as file_obj:
         tracker_process = json.load(file_obj)
         for i in tracker_config[1].keys():
             if i not in tracker_process:
@@ -95,8 +110,8 @@ tracker_list = set(tracker_config[1].keys())
 
 while True:     # 开始程序的大循环
     # 开始程序的小循环
-    for small_loop_tmp in range(config.Default.graph_time):
-        sleep(config.Default.track_time)    # 暂停运行指定秒数
+    for small_loop_tmp in range(config["graph_time"]):
+        sleep(config["track_time"])    # 暂停运行指定秒数
         now_pid = psutil.pids()     # 固定当前所有进程 pid
         now_processes = set()   # 创建、清空进程名
         for i in now_pid:   # 尝试根据 pid 获取进程名称
@@ -118,7 +133,7 @@ while True:     # 开始程序的大循环
                 fin_process = [tracker_config[0]['other'][1], i]
         # 将计数周期对应的时间灌入进程时间计数
         if not fin_process == [-99999, 'no_process']:
-            tracker_process[fin_process[1]] += config.Default.track_time
+            tracker_process[fin_process[1]] += config["track_time"]
     # 回到大循环
     # 将进程对应的时间转化为应用、分类，最后重新获取日期
     tracker_app = {}  # 重置应用时间计数
@@ -150,7 +165,7 @@ while True:     # 开始程序的大循环
         tracker_catalog[key] = value
     del no_zero
     # 输出保存 tracker_process ，权限等问题已在初始化验证，故此处不再捕捉错误
-    with open(config.Default.output_dir + now_day + '.json', 'w') as file_obj:
+    with open(config["output_dir"] + now_day + '.json', 'w') as file_obj:
         json.dump(tracker_process, file_obj)
         file_obj.close()
     # 对应用和分类时间进行绘图，然后释放掉变量
@@ -159,10 +174,10 @@ while True:     # 开始程序的大循环
     y = []
     for i in range(0, len(tracker_app.values())):
         y.append(tracker_app[x[i]] / 60)
-    font = {'family': config.Default.graph_font, "size": 24}
+    font = {'family': config["graph_font"], "size": 24}
     rc('font', **font)
     pyplot.figure(figsize=(20, 10))
-    pyplot.barh(x, y, color=config.Default.app_color)
+    pyplot.barh(x, y, color=config["app_color"])
     pyplot.title('分应用统计运行时间')
     pyplot.xlabel('大概时长（min）')
     pyplot.ylabel('应用名称')
@@ -172,7 +187,7 @@ while True:     # 开始程序的大循环
                            right=0.975,
                            hspace=0.2,
                            wspace=0.2)
-    pyplot.savefig(config.Default.output_dir + '\\app.png')
+    pyplot.savefig(config["output_dir"] + '\\app.png')
     pyplot.close()
     del tracker_app
     # 随后绘制分类计时图
@@ -194,7 +209,7 @@ while True:     # 开始程序的大循环
                            right=0.975,
                            hspace=0.2,
                            wspace=0.2)
-    pyplot.savefig(config.Default.output_dir + '\\catalog.png')
+    pyplot.savefig(config["output_dir"] + '\\catalog.png')
     pyplot.close()
     del tracker_catalog
     # 最后获取当前日期，不是同一天则先将数据保存为起点日期，后将 now_day 更改为新日期，并重置进程时间计数
