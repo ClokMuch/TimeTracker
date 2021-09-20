@@ -10,8 +10,10 @@ Time Tracker | Screen Time | 时间追踪 | 时间跟踪 | 屏幕时间 | For Wi
 ## 配置/设定 config/configure/preference
 + 在 `tracker.json` 中修改每个进程或分类的权重、显示名称等信息，请按照 `tracker.README.md` 的提示进行修改，并确保 json 格式合法;
     Change every process' or catalog's name, priority etc. in `tracker.json` according the tips in `tracker.README.md`, and ensure json format is right;
-+ 在 `config.json` 中修改程序的配置，如输出目录、程序颜色等，请按照 `config.README.md` 的提示进行修改，并确保 json 格式合法.
-    Change program's out put dir, app color etc. in `config.json` according the tips in `config.README.md`, and ensure json format is right.
++ 在 `config.json` 中修改程序的配置，如输出目录、程序颜色等，请按照 `config.README.md` 的提示进行修改，并确保 json 格式合法;
+    Change program's out put dir, app color etc. in `config.json` according the tips in `config.README.md`, and ensure json format is right;
++ 请注意，仓库中的 `tracker.json` 可能比 Release 附带的配置更先进，请考虑 [直接下载](https://github.com/ClokMuch/TimeTracker/blob/main/tracker.json) 来替换从 Release 中下载的配置;
+    `tracker.json` [here](https://github.com/ClokMuch/TimeTracker/blob/main/tracker.json) may more advanced than the Release version, please consider updating it.
 
 ## 输出图片 sample
 ![按应用展示 Out depend on apps](app.png)

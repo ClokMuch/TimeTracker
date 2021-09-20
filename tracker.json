@@ -1,16 +1,45 @@
 [
   {
-    "web": ["#fb9d94", 0],
-    "game": ["#8ab3d0", 12],
-    "development": ["#1661ab", 10],
-    "tool": ["#a9bc8f", 3],
-    "creative": ["#12aa9c", 2],
-    "document": ["#eeaa9c", 6],
-    "other": ["#c0c4c3", -1]
+    "web": [
+      "#2196f3",
+      0
+    ],
+    "game": [
+      "#f8d068",
+      12
+    ],
+    "development": [
+      "#484848",
+      11
+    ],
+    "tool": [
+      "#d0d820",
+      3
+    ],
+    "creative": [
+      "#588818",
+      5
+    ],
+    "document": [
+      "#c8c8c8",
+      7
+    ],
+    "other": [
+      "#999999",
+      -1
+    ]
   },
   {
     "chrome.exe": {
       "name": "Chrome Browser",
+      "catalog": "web"
+    },
+    "firefox.exe": {
+      "name": "Firefox Browser",
+      "catalog": "web"
+    },
+    "msedge.exe": {
+      "name": "Edge Browser",
       "catalog": "web"
     },
     "Code.exe": {
@@ -29,13 +58,70 @@
       "name": "Dead Cells",
       "catalog": "game"
     },
+    "ATRI-MyDearMoments-.exe": {
+      "name": "ATRI",
+      "catalog": "game"
+    },
+    "BloodstainedRotN.exe": {
+      "name": "Bloodstain Ritual of the Night",
+      "catalog": "game"
+    },
+    "Celeste.exe": {
+      "name": "Celeste",
+      "catalog": "game"
+    },
+    "Dolphin.exe": {
+      "name": "Dolphin",
+      "catalog": "game"
+    },
+    "Dungreed.exe": {
+      "name": "Dungreed",
+      "catalog": "game"
+    },
+    "EnderLilies.exe": {
+      "name": "Ender Lilies",
+      "catalog": "game"
+    },
+    "GTA5.exe": {
+      "name": "GTA V",
+      "catalog": "game"
+    },
+    "Control.exe": {
+      "name": "Coltrol",
+      "catalog": "game"
+    },
+    "Hollow Knight.exe": {
+      "name": "Hollow Knight",
+      "catalog": "game"
+    },
+    "ICEY.exe": {
+      "name": "ICEY",
+      "catalog": "game"
+    },
+    "LibraryOfRuina.exe": {
+      "name": "Library Of Ruina",
+      "catalog": "game"
+    },
+    "osu!.exe": {
+      "name": "OSU",
+      "catalog": "game"
+    },
+    "PlantsVsZombies.exe": {
+      "name": "Plants Vs Zombies",
+      "catalog": "game"
+    },
+    "stellaris.exe": {
+      "name": "Stellaris",
+      "catalog": "game"
+    },
     "devenv.exe": {
       "name": "Visual Studio",
       "catalog": "development"
     },
     "EXCEL.EXE": {
       "name": "Excel",
-      "catalog": "document"
+      "catalog": "document",
+      "priority": 6
     },
     "WINWORD.EXE": {
       "name": "Word",
@@ -43,7 +129,8 @@
     },
     "POWERPNT.EXE": {
       "name": "PowerPoint",
-      "catalog": "document"
+      "catalog": "document",
+      "priority": 8
     },
     "Joplin.exe": {
       "name": "Joplin",
@@ -63,6 +150,14 @@
     },
     "Adobe Premiere Pro.exe": {
       "name": "Pr",
+      "catalog": "creative"
+    },
+    "XMind.exe": {
+      "name": "XMind",
+      "catalog": "creative"
+    },
+    "UE4Editor.exe": {
+      "name": "Unreal Engine 4",
       "catalog": "creative"
     }
   }
